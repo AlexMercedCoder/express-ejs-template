@@ -8,7 +8,6 @@ const {
   SECRET = "secret",
   NODE_ENV = "development",
 } = process.env;
-console.log(PORT);
 
 //Bringing in Express
 const express = require("express");
@@ -18,6 +17,7 @@ const app = express();
 const session = require("express-session");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
+const {log} = require("mercedlogger")
 
 ////////////
 //MIDDLEWARE
@@ -44,5 +44,5 @@ app.get("/", (req, res) => {
 
 //LISTENER
 app.listen(PORT, () => {
-  console.log(`Your are listening on port ${PORT}`);
+  log.green("Server Start",`Your are listening on port ${PORT}`);
 });
